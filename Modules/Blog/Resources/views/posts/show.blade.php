@@ -9,7 +9,65 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex space-x-4">
-            <div class="sm:w-3/4 bg-white p-6">
+            <div class="hidden sm:flex flex-col sm:w-2/12">
+                <div class="bg-white divide-y-2 divide-gray-100 flex flex-col rounded-lg shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between py-2 px-4">
+                            <img src="{{ $post->creator->profile_photo_url }}" alt=""
+                                class=" rounded-full w-10 flex-shrink-0">
+                            <div class="sm:flex flex-col hidden overflow-hidden">
+                                <h2 class="font-bold text-lg">{{ $post->creator->name }}</h2>
+                                <p class="font-normal text-sm text-gray-500">{{ $post->creator->email }}</p>
+                            </div>
+                        </div>
+
+                        <p class="px-4 py-2 text-sm text-gray-500">UX/UI Designer, Laravel & React Lover</p>
+
+                    </div>
+
+                    {{-- <div class=" flex items-center justify-around py-4">
+                        <div class="flex flex-col items-center">
+                            <p class=" text-gray-500 text-sm">文章</p>
+                            <p class="font-bold text-gray-500">281</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <p class=" text-gray-500 text-sm">粉丝</p>
+                            <p class="font-bold text-gray-500">28</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <p class=" text-gray-500 text-sm">喜欢</p>
+                            <p class="font-bold text-gray-500">81</p>
+                        </div>
+                    </div> --}}
+
+                    <div class="py-4 space-y-2 px-4 bg-gray-50">
+
+
+                        <button
+                            class="flex items-center justify-center border border-gray-200 px-8 py-2 rounded-lg w-full bg-orange-600 hover:bg-orange-400 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="text-sm flex-shrink-0">私信</span>
+                        </button>
+
+                        <a href="{{ route('users.show', $post->creator->id) }}"
+                            class="flex items-start justify-center border border-gray-200 px-8 py-2 rounded-lg w-full hover:bg-orange-50">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            <span class="text-gray-600 text-sm flex-shrink-0">主页</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-full px-6 sm:w-8/12">
                 <h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl">{{ $post->title }}</h2>
                 <div class="flex items-center text-sm text-gray-400 py-2 border-b border-gray-200 leading-6 space-x-2">
                     <span>
@@ -56,61 +114,49 @@
 
 
                 </div>
-            </div>
-            <div class="w-1/4 hidden sm:flex flex-col">
-                <div class="bg-white divide-y-2 divide-gray-100 flex flex-col px-6 rounded">
-                    <div class="flex items-center justify-between py-2">
-                        <div>
-                            <h2 class=" font-bold text-lg">{{ $post->creator->name }}</h2>
-                            <p class=" font-normal text-sm text-gray-500">{{ $post->creator->email }}</p>
-                        </div>
-                        <img src="{{ $post->creator->profile_photo_url }}" alt=""
-                            class=" rounded-full w-16 flex-shrink-0">
-                    </div>
 
-                    <div class=" flex items-center justify-around py-4">
-                        <div class="flex flex-col items-center">
-                            <p class=" text-gray-500 text-sm">文章</p>
-                            <p class="font-bold text-gray-500">281</p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <p class=" text-gray-500 text-sm">粉丝</p>
-                            <p class="font-bold text-gray-500">28</p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <p class=" text-gray-500 text-sm">喜欢</p>
-                            <p class="font-bold text-gray-500">81</p>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <p class=" text-gray-500 text-sm">收藏</p>
-                            <p class="font-bold text-gray-500">281</p>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-center items-center py-4 space-x-2">
-                        <button
-                            class="flex items-center justify-center border border-gray-200 px-8 py-2 rounded flex-shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                <div class=" flex items-center justify-start">
+                    <p>分享此文章到：</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#">
+                            <svg t="1636723095603" class="icon w-5 h-5" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="1194" width="200" height="200">
+                                <path
+                                    d="M511.968 73.152q119.424 0 220.288 58.848t159.712 159.712 58.848 220.288q0 143.424-83.712 258.016t-216.288 158.56q-15.424 2.848-22.848-4t-7.424-17.152q0-1.728 0.288-43.712t0.288-76.864q0-55.424-29.728-81.152 32.576-3.424 58.56-10.272t53.728-22.272 46.272-38.016 30.272-60 11.712-86.016q0-68-45.152-117.728 21.152-52-4.576-116.576-16-5.152-46.272 6.272t-52.576 25.152l-21.728 13.728q-53.152-14.848-109.728-14.848t-109.728 14.848q-9.152-6.272-24.288-15.424t-47.712-22.016-48.576-7.712q-25.728 64.576-4.576 116.576-45.152 49.728-45.152 117.728 0 48.576 11.712 85.728t30.016 60 46.016 38.272 53.728 22.272 58.56 10.272q-22.272 20.576-28 58.848-12 5.728-25.728 8.576t-32.576 2.848-37.44-12.288-31.712-35.712q-10.848-18.272-27.712-29.728t-28.288-13.728l-11.424-1.728q-12 0-16.576 2.56t-2.848 6.56 5.152 8 7.424 6.848l4 2.848q12.576 5.728 24.864 21.728t18.016 29.152l5.728 13.152q7.424 21.728 25.152 35.136t38.272 17.152 39.712 4 31.712-2.016l13.152-2.272q0 21.728 0.288 50.56t0.288 31.136q0 10.272-7.424 17.152t-22.848 4q-132.576-44-216.288-158.56t-83.712-258.016q0-119.424 58.848-220.288t159.712-159.712 220.288-58.848zM239.392 703.424q1.728-4-4-6.848-5.728-1.728-7.424 1.152-1.728 4 4 6.848 5.152 3.424 7.424-1.152zM257.12 722.848q4-2.848-1.152-9.152-5.728-5.152-9.152-1.728-4 2.848 1.152 9.152 5.728 5.728 9.152 1.728zM274.272 748.576q5.152-4 0-10.848-4.576-7.424-9.728-3.424-5.152 2.848 0 10.272t9.728 4zM298.272 772.576q4.576-4.576-2.272-10.848-6.848-6.848-11.424-1.728-5.152 4.576 2.272 10.848 6.848 6.848 11.424 1.728zM330.848 786.848q1.728-6.272-7.424-9.152-8.576-2.272-10.848 4t7.424 8.576q8.576 3.424 10.848-3.424zM366.848 789.728q0-7.424-9.728-6.272-9.152 0-9.152 6.272 0 7.424 9.728 6.272 9.152 0 9.152-6.272zM399.968 784q-1.152-6.272-10.272-5.152-9.152 1.728-8 8.576t10.272 4.576 8-8z"
+                                    p-id="1195"></path>
                             </svg>
-                            <span class="text-gray-600 text-sm">关注</span>
-                        </button>
-
-                        <button
-                            class="flex items-center justify-center border border-gray-200 px-8 py-2 rounded flex-shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </a>
+                        <a href="#">
+                            <svg t="1636723126721" class="icon w-5 h-5" viewBox="0 0 1025 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="1998" width="200" height="200">
+                                <path
+                                    d="M290.048 294.592c0-13.632-4.16-24.64-12.48-33.024-8.32-8.384-19.328-12.544-33.024-12.48-14.336 0-27.008 4.224-38.016 12.736C195.584 270.336 190.08 281.216 190.08 294.592c0 12.992 5.504 23.744 16.512 32.256C217.6 335.36 230.272 339.584 244.608 339.584c13.632 0 24.64-4.096 33.024-12.224C285.952 319.232 290.112 308.288 290.048 294.592L290.048 294.592 290.048 294.592zM661.568 548.032c0-9.344-4.224-17.664-12.736-25.024-8.512-7.36-19.392-11.008-32.768-11.008-9.024 0-17.28 3.776-24.768 11.264C583.808 530.816 580.032 539.072 580.032 548.032c0 9.344 3.776 17.792 11.264 25.28 7.488 7.488 15.744 11.264 24.768 11.264 13.312 0 24.256-3.648 32.768-11.008C657.344 566.272 661.568 557.76 661.568 548.032L661.568 548.032 661.568 548.032zM543.552 294.592c0-13.632-4.096-24.64-12.224-33.024C523.2 253.184 512.256 249.024 498.56 249.088c-14.336 0-27.008 4.224-38.016 12.736C449.536 270.336 444.032 281.216 444.032 294.592c0 12.992 5.504 23.744 16.512 32.256C471.552 335.36 484.224 339.584 498.56 339.584c13.632 0 24.576-4.096 32.768-12.224S543.616 308.288 543.552 294.592L543.552 294.592 543.552 294.592zM860.992 548.032c0-9.344-4.352-17.664-12.992-25.024-8.64-7.36-19.52-11.008-32.512-11.008-9.024 0-17.28 3.776-24.768 11.264-7.488 7.488-11.264 15.744-11.264 24.768 0 9.344 3.776 17.792 11.264 25.28 7.488 7.488 15.744 11.264 24.768 11.264 12.992 0 23.872-3.648 32.512-11.008C856.704 566.272 860.992 557.76 860.992 548.032L860.992 548.032 860.992 548.032zM728.064 349.568c-10.304-1.344-22.016-1.984-35.008-1.984-56.32 0-108.16 12.864-155.52 38.528-47.36 25.664-84.608 60.416-111.744 104.256C398.656 534.144 385.088 582.08 385.024 634.048c0 25.984 3.84 51.328 11.52 75.968-11.648 0.96-22.976 1.472-33.984 1.472-8.64 0-17.024-0.256-25.024-0.768-8-0.512-17.216-1.6-27.52-3.264-10.304-1.664-17.728-2.816-22.272-3.52-4.544-0.704-13.632-2.432-27.264-5.248-13.632-2.816-22.016-4.544-25.024-5.248l-126.528 63.488 36.032-108.992C48.32 580.288 0 498.624 0 403.008c0-56.32 16.256-108.16 48.768-155.52 32.512-47.36 76.48-84.608 131.968-111.744 55.488-27.136 116.032-40.704 181.76-40.768C421.12 94.976 476.544 105.984 528.704 128c52.16 22.016 95.808 52.416 131.008 91.264 35.136 38.848 57.92 82.24 68.224 130.24L728.064 349.568 728.064 349.568zM1024 630.016c0 38.976-11.392 76.224-34.24 111.744-22.848 35.52-53.76 67.776-92.736 96.768l27.52 90.496-99.52-54.528c-49.984 12.352-86.336 18.496-108.992 18.496-56.32 0-108.16-11.776-155.52-35.264-47.36-23.488-84.608-55.424-111.744-95.744s-40.704-84.288-40.768-131.968C408.064 582.4 421.632 538.368 448.832 498.112c27.2-40.32 64.448-72.256 111.744-95.744 47.296-23.488 99.072-35.264 155.52-35.264 53.696 0 104.128 11.776 151.488 35.264 47.296 23.488 85.248 55.488 113.728 96C1009.728 538.816 1024 582.72 1024 630.08L1024 630.016 1024 630.016z"
+                                    p-id="1999"></path>
                             </svg>
-                            <span class="text-gray-600 text-sm">私信</span>
-                        </button>
+                        </a>
+
+                        <a href="#">
+                            <svg t="1636723152294" class="icon w-5 h-5" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="2791" width="200" height="200">
+                                <path
+                                    d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z"
+                                    p-id="2792"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-
             </div>
+            {{-- <div class="w-1/12 hidden sm:flex flex-col">
+                <div class="bg-white px-6 py-4 rounded text-sm text-red-400 shadow-lg">
+                    广告位
+                    <br>
+                    广告位
+                    广告位
+                    广告位
+                    广告位
+                </div>
+
+            </div> --}}
         </div>
     </div>
 </x-app-layout>

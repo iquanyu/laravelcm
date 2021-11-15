@@ -17,12 +17,12 @@ class BlogDatabaseSeeder extends Seeder
   {
     Model::unguard();
 
-    Category::create(['name' => 'Laravel', 'slug' => 'laravel', 'color' => 'red']);
-    Category::create(['name' => 'React', 'slug' => 'react', 'color' => 'blue']);
-    Category::create(['name' => 'VueJS', 'slug' => 'vue-js', 'color' => 'yellow']);
-    Category::create(['name' => 'JavaScript', 'slug' => 'javascript', 'color' => 'indigo']);
-    Category::create(['name' => 'Hosting', 'slug' => 'hosting', 'color' => 'purple']);
-    Category::create(['name' => 'Astuces', 'slug' => 'astuces-developpeur', 'color' => 'pink']);
+    Category::create(['name' => 'Laravel', 'slug' => 'laravel', 'color' => 'bg-red-500']);
+    Category::create(['name' => 'React', 'slug' => 'react', 'color' => 'bg-blue-500']);
+    Category::create(['name' => 'VueJS', 'slug' => 'vue-js', 'color' => 'bg-yellow-500']);
+    Category::create(['name' => 'JavaScript', 'slug' => 'javascript', 'color' => 'bg-indigo-500']);
+    Category::create(['name' => 'Hosting', 'slug' => 'hosting', 'color' => 'bg-purple-500']);
+    Category::create(['name' => 'Astuces', 'slug' => 'astuces-developpeur', 'color' => 'bg-pink-500']);
 
     // $this->call("OthersTableSeeder");
   }
